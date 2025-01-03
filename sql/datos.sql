@@ -31,8 +31,8 @@ INSERT INTO Refuerzo (nombre, imagen, calidadID) VALUES
 ('Daño', 'https://example.com/dano.png', 2),
 ('Carga de Gadget', 'https://example.com/carga_gadget.png', 2);
 
-INSERT INTO hipercarga (nombre, descripcion, imagen) VALUES
-('TEMPORADA DE FLORACIÓN', 'La Granda punzante actúa sobre un área un 20% mayor.', 'https://www.asset.com');
+INSERT INTO Hipercarga (nombre, descripcion, imagen) VALUES
+('TEMDPORADA DE FLORACIÓN', 'La Granda punzante actúa sobre un área un 20% mayor.', 'https://www.asset.com');
 
 
 INSERT INTO Brawler(nombre, salud, daño, alcanceID, calidadID, tipoID, hipercargaID)
@@ -46,8 +46,8 @@ VALUES
 #(2,1),(2,2),(2,3),(2,4),(2,5),(2,6);
 
 INSERT INTO StatsExtra (salud, daño, alcanceID, brawlerID) VALUES
-(NULL, '3200', 3,2);
-(NULL, '1612', 1,3)
+(NULL, '3200', 3,2),
+(NULL, '1612', 1,3);
 
 INSERT INTO Gadget (nombre, imagen, brawlerID) VALUES 
 ('Lluvia de Espinas', 'https://example.com/gadget1.png',1),('Vida Vegetal','https://example.com/gadget2.png',1),
@@ -68,7 +68,7 @@ VALUES
 'https://example.com/super2.png',2),
 
 ('El Escondite Inglés', 'R-T se divide en dos. Sus piernas se quedan atrás, y sus dos mitades consiguen un poderoso ataque a corta distancia que marca a los enemigos. R-T se mueve más rápido.',
-'https://example.com/super3.png',3)
+'https://example.com/super3.png',3),
 
 ('Onda de Radar', 'R-T se teletransporta a sus piernas y vuelve a estar entero. Recupera 1000 puntos de vida.', 
 'https://example.com/super4.png',3);

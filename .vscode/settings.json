@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "dxw1m.h.filess.io",
+            "port": 3307,
+            "driver": "MySQL",
+            "name": "brawlAPIxd",
+            "database": "brawler_puttingten",
+            "username": "brawler_puttingten",
+            "password": "a85287bccafd0260e3b11004540f2a806fc9a7c0"
+        }
+    ]
+}

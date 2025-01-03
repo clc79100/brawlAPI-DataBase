@@ -9,45 +9,6 @@ CREATE TABLE Hipercarga(
     PRIMARY KEY(hipercargaID)
 );
 
-CREATE TABLE Super(
-    superID INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(30) NOT NULL,
-    descripcion VARCHAR(200) NOT NULL,
-    imagen VARCHAR(200) NOT NULL,
-    brawlerID INT NOT NULL,
-    PRIMARY KEY(superID),
-    CONSTRAINT fk_brawler_super FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
-);
-
-CREATE TABLE Estelar(
-    estelarID INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    imagen VARCHAR(200) NOT NULL,
-    brawlerID INT NOT NULL,
-    PRIMARY KEY (estelarID),
-    CONSTRAINT fk_brawler_estelar FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
-);
-
-CREATE TABLE Gadget (
-    gadgetID INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    imagen VARCHAR(200) NOT NULL,
-    brawlerID INT NOT NULL,
-    PRIMARY KEY(gadgetID),
-    CONSTRAINT fk_brawler_gadget FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
-);
-
-CREATE TABLE StatsExtra(
-    statsExtraID INT NOT NULL AUTO_INCREMENT,
-    salud INT,
-    daño VARCHAR(20) NOT NULL,
-    alcanceID INT NOT NULL,
-    brawlerID INT NOT NULL,
-    PRIMARY KEY(statsExtraID),
-    CONSTRAINT fk_alcance_statsExtra FOREIGN KEY(alcanceID) REFERENCES Alcance(alcanceID),
-    CONSTRAINT fk_alcance_brawler FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
-);
-
 CREATE TABLE Alcance(
     alcanceID INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(20) NOT NULL,
@@ -91,6 +52,47 @@ CREATE TABLE Brawler(
     CONSTRAINT fk_hipercargaID FOREIGN KEY(hipercargaID) REFERENCES Hipercarga(hipercargaID),
     UNIQUE(hipercargaID)
 );
+
+CREATE TABLE Estelar(
+    estelarID INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    imagen VARCHAR(200) NOT NULL,
+    brawlerID INT NOT NULL,
+    PRIMARY KEY (estelarID),
+    CONSTRAINT fk_brawler_estelar FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
+);
+
+CREATE TABLE Gadget (
+    gadgetID INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    imagen VARCHAR(200) NOT NULL,
+    brawlerID INT NOT NULL,
+    PRIMARY KEY(gadgetID),
+    CONSTRAINT fk_brawler_gadget FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
+);
+
+CREATE TABLE Super(
+    superID INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(30) NOT NULL,
+    descripcion VARCHAR(200) NOT NULL,
+    imagen VARCHAR(200) NOT NULL,
+    brawlerID INT NOT NULL,
+    PRIMARY KEY(superID),
+    CONSTRAINT fk_brawler_super FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
+);
+
+
+CREATE TABLE StatsExtra(
+    statsExtraID INT NOT NULL AUTO_INCREMENT,
+    salud INT,
+    daño VARCHAR(20) NOT NULL,
+    alcanceID INT NOT NULL,
+    brawlerID INT NOT NULL,
+    PRIMARY KEY(statsExtraID),
+    CONSTRAINT fk_alcance_statsExtra FOREIGN KEY(alcanceID) REFERENCES Alcance(alcanceID),
+    CONSTRAINT fk_alcance_brawler FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID)
+);
+
 CREATE TABLE DetalleBrawlerRefuerzo(
     detalleBrawlerRefuerzoID INT NOT NULL AUTO_INCREMENT,
     brawlerID INT NOT NULL,
@@ -99,8 +101,6 @@ CREATE TABLE DetalleBrawlerRefuerzo(
     CONSTRAINT fk_brawler FOREIGN KEY(brawlerID) REFERENCES Brawler(brawlerID),
     CONSTRAINT fk_refuerzo FOREIGN KEY(refuerzoID) REFERENCES Refuerzo(refuerzoID)
 );
-
-
 
 
 SELECT * FROM alcance;
@@ -112,9 +112,6 @@ SELECT * FROM brawler;
 SELECT * FROM gadget;
 SELECT * FROM estelar;
 SELECT * FROM DetalleBrawlerRefuerzo;
-
-INSERT INTO DetalleBrawlerRefuerzo (brawlerID, refuerzoID) VALUES
-(2,6);
 
 #Todos los brawlers
 SELECT 
@@ -212,7 +209,7 @@ CREATE VIEW vw_Brawler AS
         ON B.tipoID = T.tipoID;
 
 SELECT * FROM vw_brawler;
-DROP VIEW vw_brawler;
+#DROP VIEW vw_brawler;
 
 #Vista 
 
